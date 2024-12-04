@@ -1,6 +1,11 @@
 -- Configuration minimale pour Packer
 require("packer").startup(function()
   use "wbthomason/packer.nvim" -- Gestionnaire de plugins
+
+  use {
+    "nvim-telescope/telescope.nvim",
+    requires = { "nvim-lua/plenary.nvim" } -- Dépendance obligatoire pour Telescope
+  }
 end)
 
 -- Autocommande pour Stdheader
