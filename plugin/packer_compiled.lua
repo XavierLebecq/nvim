@@ -88,6 +88,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/xavier/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-synthwave84"] = {
+    loaded = true,
+    path = "/home/xavier/.local/share/nvim/site/pack/packer/start/vim-synthwave84",
+    url = "https://github.com/artanikin/vim-synthwave84"
   }
 }
 
