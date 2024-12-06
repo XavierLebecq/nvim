@@ -1,3 +1,7 @@
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4 
+
 vim.g.user42 = "xlebecq"
 vim.g.mail42 = "xlebecq@student.42.fr"
 vim.g.mapleader = "\\"
@@ -25,7 +29,7 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Telescope - Trou
 
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Telescope - Recherche texte" })
 
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Telescope - Buffers ouverts" })
+vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = "Telescope - Buffers ouverts" })
 
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Telescope - Aide intégrée" })
 
