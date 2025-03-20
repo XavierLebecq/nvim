@@ -48,12 +48,28 @@ require("project_nvim").setup {
 }
 
 -- Configuration de Telescope
+local actions = require("telescope.actions")
+
 require('telescope').setup {
   defaults = {
     -- Configuration générale de Telescope
     prompt_prefix = "> ",
     selection_caret = "> ",
     path_display = { "smart" },
+
+    -- Ajout des mappings pour ouvrir dans différents splits
+    mappings = {
+      i = {
+        ["<C-v>"] = actions.select_vertical,  -- Ouvrir en split vertical avec Ctrl+V
+        ["<C-x>"] = actions.select_horizontal, -- Ouvrir en split horizontal avec Ctrl+X
+        ["<C-t>"] = actions.select_tab,  -- Ouvrir dans un nouvel onglet avec Ctrl+T
+      },
+      n = {
+        ["<C-v>"] = actions.select_vertical,
+        ["<C-x>"] = actions.select_horizontal,
+        ["<C-t>"] = actions.select_tab,
+      }
+    }
   },
   pickers = {
     live_grep = {
