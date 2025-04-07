@@ -3,10 +3,20 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4 
 
+vim.opt.swapfile = false
+
+vim.opt.relativenumber = true
+vim.opt.number = true
+
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+vim.opt.termguicolors = true
+
 vim.g.user42 = "xlebecq"
 vim.g.mail42 = "xlebecq@student.42.fr"
 vim.g.mapleader = "\\"
-
+vim.cmd("colorscheme synthwave84")
 vim.cmd [[
   autocmd BufNewFile * :Stdheader
 ]]
@@ -36,7 +46,7 @@ require("packer").startup(function()
         patterns = { ".git", "package.json", "Makefile", "README.md" },
 
         -- Répertoires à exclure
-        exclude_dirs = { "~/.cargo/*", "target/*" },
+        exclude_dirs = { "~/.cargo/*", "target/*", ".objs/*" },
       }
     end
   }
@@ -69,8 +79,15 @@ require('telescope').setup {
         ["<C-x>"] = actions.select_horizontal,
         ["<C-t>"] = actions.select_tab,
       }
-    }
-  },
+    },
+      file_ignore_patterns = { 
+          "node_modules",
+          "objects",
+          "object",
+          "$.d",
+          "$.o"
+      }
+    },
   pickers = {
     live_grep = {
       -- Paramètres spécifiques pour Live Grep (peut rester vide ici)
@@ -81,7 +98,7 @@ require('telescope').setup {
   },
   extensions = {
     file_browser = {
-      hijack_netrw = true, -- Remplace le navigateur de fichiers par défaut
+  	    hijack_netrw = true, -- Remplace le navigateur de fichiers par défaut
       mappings = {
         ["n"] = { -- Mode normal
           ["a"] = function(prompt_bufnr)
