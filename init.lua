@@ -5,8 +5,8 @@ vim.opt.softtabstop = 4
 
 vim.opt.swapfile = false
 
-vim.opt.relativenumber = true
 vim.opt.number = true
+vim.opt.relativenumber = false
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -17,6 +17,18 @@ vim.g.user42 = "xlebecq"
 vim.g.mail42 = "xlebecq@student.42.fr"
 vim.g.mapleader = "\\"
 vim.cmd("colorscheme synthwave84")
+
+-- Appliquer la transparence
+vim.cmd [[
+  hi Normal guibg=NONE ctermbg=NONE
+  hi NormalNC guibg=NONE ctermbg=NONE
+  hi EndOfBuffer guibg=NONE ctermbg=NONE
+  hi VertSplit guibg=NONE ctermbg=NONE
+  hi StatusLine guibg=NONE ctermbg=NONE
+  hi NvimTreeNormal guibg=NONE ctermbg=NONE
+]]
+
+
 vim.cmd [[
   autocmd BufNewFile * :Stdheader
 ]]
@@ -136,3 +148,19 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Telescope - Aide 
 
 vim.keymap.set('n', '<leader>fb', require('telescope').extensions.file_browser.file_browser, { desc = "Telescope - Navigateur de fichiers" })
 
+-- 💙 Rendre les bordures de Telescope bleues
+vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#4169E1", bg = "NONE" })
+vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = "#4169E1", bg = "NONE" })
+vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = "#4169E1", bg = "NONE" })
+vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = "#4169E1", bg = "NONE" })
+
+-- 💙 Rendre les tildes (~) en bleu
+vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#4169E1", bg = "NONE" })
+
+-- 💙 Bleu pour les numéros classiques
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#4169E1", bg = "NONE" })
+
+-- ❤️ Rouge pour le numéro de la ligne active
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FF5555", bg = "NONE" })
+
+vim.opt.cursorline = true
